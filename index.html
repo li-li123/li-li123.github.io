@@ -51,11 +51,11 @@ window.$docsify = {
         function(hook, vm) {
           hook.beforeEach(function (html) {
 
-            var svgUrl = 'https://books.ironblog.cn/api/v3/count?path=' + vm.route.file;
+            var svgUrl = 'https://yl-books.ironblog.cn/api/v3/count?path=' + vm.route.file;
 
             html = '> ![浏览量]('+ svgUrl +')'+ '\n-------\n' + html;
 
-            var url = 'https://gitee.com/a_bad_fox/books/tree/master/' + vm.route.file
+            var url = 'https://gitee.com/yelan_123/books/tree/master/' + vm.route.file
             var editHtml = '[:memo: Edit Document](' + url + ')\n'
             if(vm.route.file != 'README.md'){
               return html
