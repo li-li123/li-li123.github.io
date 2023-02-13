@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	  	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	  	<title>Java 8 ConcurrentHashMap</title>
+	  	<link rel="stylesheet" href="/resources/codemirror-5.59.2/lib/codemirror.css">
+		<script src="/resources/codemirror-5.59.2/lib/codemirror.js"></script>
+		<script src="/resources/codemirror-5.59.2/mode/clike/clike.js"></script>
+
+		<!--引入css文件，用以支持主题-->
+		<link rel="stylesheet" href="/resources/codemirror-5.59.2/theme/eclipse.css">
+		<link rel="stylesheet" href="/resources/codemirror-5.59.2/theme/seti.css">
+		<link rel="stylesheet" href="/resources/codemirror-5.59.2/theme/dracula.css">
+
+
+
+		<!--支持代码折叠-->
+		<link rel="stylesheet" href="/resources/codemirror-5.59.2/addon/fold/foldgutter.css"/>
+		<script src="/resources/codemirror-5.59.2/addon/fold/foldcode.js"></script>
+		<script src="/resources/codemirror-5.59.2/addon/fold/foldgutter.js"></script>
+		<script src="/resources/codemirror-5.59.2/addon/fold/brace-fold.js"></script>
+		<script src="/resources/codemirror-5.59.2/addon/fold/comment-fold.js"></script>
+
+		<!--全屏模式-->
+		<link rel="stylesheet" href="/resources/codemirror-5.59.2/addon/display/fullscreen.css">
+		<script src="/resources/codemirror-5.59.2/addon/display/fullscreen.js"></script>
+
+		<!--括号匹配-->
+		<script src="/resources/codemirror-5.59.2/addon/edit/matchbrackets.js"></script>
+
+		<style type="text/css">
+		    .CodeMirror {
+		      border: 1px solid #eee;
+		      font-size: 16px;
+		    }
+		    
+		</style>
+</head>
+
+<body>
+<textarea id="code">
+private final void transfer(Node<K,V>[] tab, Node<K,V>[] nextTab) {
+    int n = tab.length, stride; // stride 步长, 最小是16
+
+    if ((stride = (NCPU > 1) ? (n >>> 3) / NCPU : n) < MIN_TRANSFER_STRIDE)
+        stride = MIN_TRANSFER_STRIDE; // subdivide range
+    
+    if (nextTab == null) {            // 初始化转移table
+        try {
+            @SuppressWarnings("unchecked")
+            Node<K,V>[] nt = (Node<K,V>[])new Node<?,?>[n << 1];
+            nextTab = nt;
+        } catch (Throwable ex) {      // try to cope with OOME
+            sizeCtl = Integer.MAX_VALUE;
+            return;
+        }
+        nextTable = nextTab;
+        transferIndex = n;
+    }
+
+
+    int nextn = nextTab.length; // 新数组的大小
+    ForwardingNode<K,V> fwd = new ForwardingNode<K,V>(nextTab); // 在旧Table上放置转移标志位
+
+    boolean advance = true;// 进一步转移
+    boolean finishing = false; // 当前线程的扩容任务是否结束
+    
+    for (int i = 0, bound = 0;;) { // i 哈希桶的起始位置, bound 哈希桶的结束位置
+
+        Node<K,V> f; int fh;
+        
+        while (advance) { // 该循环是为了寻找当前线程负责的转移区间
+            int nextIndex, nextBound;
+            if (--i >= bound || finishing)
+                advance = false;
+            
+            else if ((nextIndex = transferIndex) <= 0) {
+                i = -1;
+                advance = false;
+            }
+            else if (U.compareAndSwapInt
+                     (this, TRANSFERINDEX, nextIndex,
+                      nextBound = (nextIndex > stride ?
+                                   nextIndex - stride : 0))) {
+                bound = nextBound;
+                i = nextIndex - 1;
+                advance = false;
+            }
+
+        }
+
+
+        if (i < 0 || i >= n || i + n >= nextn) {
+        
+            int sc;
+            if (finishing) {
+                nextTable = null;
+                table = nextTab;
+                sizeCtl = (n << 1) - (n >>> 1);
+                return;
+            }
+            if (U.compareAndSwapInt(this, SIZECTL, sc = sizeCtl, sc - 1)) {
+                if ((sc - 2) != resizeStamp(n) << RESIZE_STAMP_SHIFT)
+                    return;
+                finishing = advance = true;
+                i = n; // recheck before commit
+            }
+        }
+        else if ((f = tabAt(tab, i)) == null)
+            // 遇到空槽, 设置标记为
+            advance = casTabAt(tab, i, null, fwd);
+        
+        else if ((fh = f.hash) == MOVED)
+            // 有其他线程进行转移, 进一步寻找转移区间
+            advance = true; // already processed
+
+        else {
+            synchronized (f) {
+
+                if (tabAt(tab, i) == f) { // 直接加锁, 放置其他线程对该哈希槽进行put操作
+
+                    // 把链表分为两部分, 一部分哈希桶不变, 一部分哈希桶位置改变
+                    Node<K,V> ln, hn;
+                    if (fh >= 0) {
+                        int runBit = fh & n;
+                        Node<K,V> lastRun = f;
+                        for (Node<K,V> p = f.next; p != null; p = p.next) {
+                            int b = p.hash & n;
+                            if (b != runBit) {
+                                runBit = b;
+                                lastRun = p;
+                            }
+                        }
+                        if (runBit == 0) {
+                            ln = lastRun;
+                            hn = null;
+                        }
+                        else {
+                            hn = lastRun;
+                            ln = null;
+                        }
+                        for (Node<K,V> p = f; p != lastRun; p = p.next) {
+                            int ph = p.hash; K pk = p.key; V pv = p.val;
+                            if ((ph & n) == 0)
+                                ln = new Node<K,V>(ph, pk, pv, ln);
+                            else
+                                hn = new Node<K,V>(ph, pk, pv, hn);
+                        }
+                        setTabAt(nextTab, i, ln);
+                        setTabAt(nextTab, i + n, hn);
+                        setTabAt(tab, i, fwd); // 设置转移标识
+                        advance = true;
+                    
+                    }
+                    else if (f instanceof TreeBin) {
+                        
+                        // 桶 1.8 HashMap 扩容代码相同
+                        TreeBin<K,V> t = (TreeBin<K,V>)f;
+                        TreeNode<K,V> lo = null, loTail = null;
+                        TreeNode<K,V> hi = null, hiTail = null;
+                        int lc = 0, hc = 0;
+                        for (Node<K,V> e = t.first; e != null; e = e.next) {
+                            int h = e.hash;
+                            TreeNode<K,V> p = new TreeNode<K,V>
+                                (h, e.key, e.val, null, null);
+                            if ((h & n) == 0) {
+                                if ((p.prev = loTail) == null)
+                                    lo = p;
+                                else
+                                    loTail.next = p;
+                                loTail = p;
+                                ++lc;
+                            }
+                            else {
+                                if ((p.prev = hiTail) == null)
+                                    hi = p;
+                                else
+                                    hiTail.next = p;
+                                hiTail = p;
+                                ++hc;
+                            }
+                        }
+                        
+                        // 链表过长, 转成红黑树
+                        ln = (lc <= UNTREEIFY_THRESHOLD) ? untreeify(lo) :
+                            (hc != 0) ? new TreeBin<K,V>(lo) : t;
+                        hn = (hc <= UNTREEIFY_THRESHOLD) ? untreeify(hi) :
+                            (lc != 0) ? new TreeBin<K,V>(hi) : t;
+                        
+                        setTabAt(nextTab, i, ln);
+                        setTabAt(nextTab, i + n, hn);
+                        setTabAt(tab, i, fwd); // 设置转移标识
+                        advance = true;
+
+                    }
+                }
+            }
+        }
+    }
+}
+</textarea>
+</body>
+<script type="text/javascript">
+    var editor=CodeMirror.fromTextArea(document.getElementById("code"),{
+         //Java高亮显示
+         mode:"text/x-java",
+
+         //显示行号
+         lineNumbers:true,
+
+         // 只读
+         readOnly: "nocursor",
+
+         //设置主题
+         theme:"dracula",
+
+
+         //代码折叠
+         lineWrapping:true,
+         foldGutter: true,
+         gutters:["CodeMirror-linenumbers", "CodeMirror-foldgutter"],
+
+
+});
+
+    editor.setSize("100%", "100%");
+</script>
+</html>

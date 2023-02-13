@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	  	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	  	<title>Java 8 ConcurrentHashMap</title>
+	  	<link rel="stylesheet" href="/resources/codemirror-5.59.2/lib/codemirror.css">
+		<script src="/resources/codemirror-5.59.2/lib/codemirror.js"></script>
+		<script src="/resources/codemirror-5.59.2/mode/clike/clike.js"></script>
+
+		<!--引入css文件，用以支持主题-->
+		<link rel="stylesheet" href="/resources/codemirror-5.59.2/theme/eclipse.css">
+		<link rel="stylesheet" href="/resources/codemirror-5.59.2/theme/seti.css">
+		<link rel="stylesheet" href="/resources/codemirror-5.59.2/theme/dracula.css">
+
+
+
+		<!--支持代码折叠-->
+		<link rel="stylesheet" href="/resources/codemirror-5.59.2/addon/fold/foldgutter.css"/>
+		<script src="/resources/codemirror-5.59.2/addon/fold/foldcode.js"></script>
+		<script src="/resources/codemirror-5.59.2/addon/fold/foldgutter.js"></script>
+		<script src="/resources/codemirror-5.59.2/addon/fold/brace-fold.js"></script>
+		<script src="/resources/codemirror-5.59.2/addon/fold/comment-fold.js"></script>
+
+		<!--全屏模式-->
+		<link rel="stylesheet" href="/resources/codemirror-5.59.2/addon/display/fullscreen.css">
+		<script src="/resources/codemirror-5.59.2/addon/display/fullscreen.js"></script>
+
+		<!--括号匹配-->
+		<script src="/resources/codemirror-5.59.2/addon/edit/matchbrackets.js"></script>
+
+		<style type="text/css">
+		    .CodeMirror {
+		      border: 1px solid #eee;
+		      font-size: 16px;
+		    }
+		    
+		</style>
+</head>
+
+<body>
+<textarea id="code">
+ private final void fullAddCount(long x, boolean wasUncontended) {
+    int h;
+    if ((h = ThreadLocalRandom.getProbe()) == 0) {
+        ThreadLocalRandom.localInit();      // 初始化
+        h = ThreadLocalRandom.getProbe();
+        wasUncontended = true;
+    }
+    boolean collide = false;                // 冲突
+    for (;;) {
+        CounterCell[] as; CounterCell a; int n; long v;
+        if ((as = counterCells) != null && (n = as.length) > 0) { // 计数格数组不为空
+
+            if ((a = as[(n - 1) & h]) == null) { // 该计数格为空
+
+                if (cellsBusy == 0) {            // 计数格不繁忙
+                    CounterCell r = new CounterCell(x); // 初始化计数格
+                    if (cellsBusy == 0 &&
+                        U.compareAndSwapInt(this, CELLSBUSY, 0, 1)) { // 尝试加锁
+                        boolean created = false;
+                        try {               // 二次验证
+                            CounterCell[] rs; int m, j;
+                            if ((rs = counterCells) != null &&
+                                (m = rs.length) > 0 &&
+                                rs[j = (m - 1) & h] == null) {
+                                rs[j] = r;
+                                created = true;
+                            }
+                        } finally {
+                            cellsBusy = 0;
+                        }
+                        if (created)
+                            break; // 初始化成功返回
+                        continue;           //初始化失败, 继续循环
+                    }
+                }
+                collide = false;
+            }
+            else if (!wasUncontended)       // 上次 CAS 失败
+                wasUncontended = true;      // 下次尝试CAS
+            else if (U.compareAndSwapLong(a, CELLVALUE, v = a.value, v + x)) // 尝试CAS
+                break;
+            else if (counterCells != as || n >= NCPU)
+                collide = false;            // At max size or stale
+            else if (!collide)
+                collide = true;
+            else if (cellsBusy == 0 &&
+                     U.compareAndSwapInt(this, CELLSBUSY, 0, 1)) { // 加锁
+
+                // counterCell 扩容的条件
+                // 1. 两次循环, 依然无法成功计算
+                // 2. counterCell 的容量 小于 运算核心数
+                // 3. cunterCell 没有在循环期间改变
+
+                try {
+                    if (counterCells == as) {// Expand table unless stale
+                        CounterCell[] rs = new CounterCell[n << 1]; // counterCell 扩容
+                        for (int i = 0; i < n; ++i)
+                            rs[i] = as[i];
+                        counterCells = rs;
+                    }
+                } finally {
+                    cellsBusy = 0;
+                }
+                collide = false;
+                continue;                   // Retry with expanded table
+            }
+            h = ThreadLocalRandom.advanceProbe(h);
+        }
+
+        else if (cellsBusy == 0 && counterCells == as && // 计数格不繁忙, 并尝试加锁成功
+                 U.compareAndSwapInt(this, CELLSBUSY, 0, 1)) {
+
+            boolean init = false;
+            try {                           // Initialize table
+                if (counterCells == as) { // 二次验证 计数格没有被初始化
+                    CounterCell[] rs = new CounterCell[2];
+                    rs[h & 1] = new CounterCell(x);
+                    counterCells = rs;
+                    init = true;
+                }
+            } finally {
+                cellsBusy = 0; // 释放锁
+            }
+            if (init) // 初始化成功
+                break;
+        }
+        else if (U.compareAndSwapLong(this, BASECOUNT, v = baseCount, v + x))
+            break;                          // 对 BASECOUNT CAS成功
+    }
+ }
+</textarea>
+</body>
+<script type="text/javascript">
+    var editor=CodeMirror.fromTextArea(document.getElementById("code"),{
+         //Java高亮显示
+         mode:"text/x-java",
+
+         //显示行号
+         lineNumbers:true,
+
+         // 只读
+         readOnly: "nocursor",
+
+         //设置主题
+         theme:"dracula",
+
+
+         //代码折叠
+         lineWrapping:true,
+         foldGutter: true,
+         gutters:["CodeMirror-linenumbers", "CodeMirror-foldgutter"],
+
+
+});
+
+    editor.setSize("100%", "100%");
+</script>
+</html>

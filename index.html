@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ning的图书小站</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="description" content="Description">
+  <link rel="stylesheet" href="/resources/css/my.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+  <link rel="stylesheet" href="/resources/css/vue.css">
+  <!--<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.css">-->
+  <link 
+    rel="stylesheet"
+    href="//cdn.jsdelivr.net/npm/docsify-darklight-theme@latest/dist/style.min.css"
+    title="docsify-darklight-theme"
+    type="text/css"
+    />
+  <!-- <script type="text/javascript" src="./resources/js/md5.min.js"></script> -->
+  <style>
+    nav.app-nav li ul {
+      min-width: 100px;
+    }
+  </style>
+
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/sidebar.min.css" />
+
+</head>
+<body>
+
+
+  <div id="app"></div>
+
+<script>
+window.$docsify = {
+  coverpage: true,
+  name: 'Ning的图书小站',
+  repo: '',
+  maxLevel: 3,
+  subMaxLevel: 4,
+  auto2top: true,
+  loadSidebar: true,
+  beian: {
+        ICP: "陕ICP备19022463号",
+        NISMSP: {
+            number: "",
+            url: "",
+        },
+    },
+  formatUpdated: ' {YYYY}/{MM}/{DD} {HH}:{mm}',
+      plugins: [
+        function(hook, vm) {
+          hook.beforeEach(function (html) {
+
+            var svgUrl = 'https://books.ironblog.cn/api/v3/count?path=' + vm.route.file;
+
+            html = '> ![浏览量]('+ svgUrl +')'+ '\n-------\n' + html;
+
+            var url = 'https://gitee.com/a_bad_fox/books/tree/master/' + vm.route.file
+            var editHtml = '[:memo: Edit Document](' + url + ')\n'
+            if(vm.route.file != 'README.md'){
+              return html
+              + '\n******\n'
+              + '\n----\n'
+              + 'Last modified {docsify-updated}'
+              + editHtml
+            }else{
+
+              return html
+            
+            }
+            
+          })
+        }
+      ],
+      scrollToTop: {
+        auto: true,
+        text: 'Top',
+        right: 15,
+        bottom: 100,
+        offset: 500
+    }
+  
+}
+</script>
+
+<!--<script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/gitalk.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>
+<script>
+  const gitalk = new Gitalk({
+    clientID: '10f5b8790ff365af4950',
+    clientSecret: 'd6935a8bb0dde266eb445c7f7fd39dc1f3aa05e7',
+    repo: 'books_gitalk',
+    owner: 'abadfox233',
+    admin: ['abadfox233'],
+    // facebook-like distraction free mode
+    distractionFreeMode: false,
+    id: md5(location.href),
+  })
+</script>-->
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ET61LRPTVV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ET61LRPTVV');
+</script>
+<style type="text/css">
+	
+.docsify-pagination-container {
+    background-color: var(--background);
+}
+
+</style>
+
+<!-- Docsify v4 -->
+<script src="/resources/js/docsify.min.js"></script>
+<script src="/resources/js/search.min.js"></script>
+<script src="/resources/js/docsify-pagination.min.js"></script>
+<script src="/resources/js/prism-bash.js"></script>
+<script src="/resources/js/prism-yaml.js"></script>
+<script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-go.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-python.min.js"></script>
+<script src="/resources/js/prism-java.js"></script>
+<script src="/resources/js/prism-sql.js"></script>
+<!-- https://unpkg.com/prismjs@1.29.0/components/prism-go.min.js -->
+<script src="/resources/js/docsify-slides.min.js"></script>
+<script src="/resources/js/docsify-darklight-theme.min.js" type="text/javascript"> </script>
+<script src="/resources/js/docsify-scroll-to-top.min.js"></script>
+<script src="/resources/js/docsify-sidebar-collapse.min.js"></script>
+
+<script src="/resources/js/zoom-image.min.js"></script>
+
+<!-- PDF -->
+<!-- PDFObject.js is a required dependency of this plugin -->
+<script src="/resources/js/pdfobject.min.js"></script> 
+<!-- or use this if you are not hosting the file yourself -->
+<script src="/resources/js/docsify-pdf-embed.js"></script>
+
+<!-- 执行外部JS -->
+<script src="/resources/js/external-script.min.js"></script>
+<!-- 轮播图 -->
+<script src="/resources/js/roomSlider.js"></script>
+<script src="/resources/js/beian.min.js"></script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/docsify-progress@latest/dist/progress.min.js"></script> -->
+
+</body>
+</html>

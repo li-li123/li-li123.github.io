@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	  	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	  	<title>Java 8 ConcurrentHashMap</title>
+	  	<link rel="stylesheet" href="/resources/codemirror-5.59.2/lib/codemirror.css">
+		<script src="/resources/codemirror-5.59.2/lib/codemirror.js"></script>
+		<script src="/resources/codemirror-5.59.2/mode/clike/clike.js"></script>
+		<!--引入css文件，用以支持主题-->
+		<link rel="stylesheet" href="/resources/codemirror-5.59.2/theme/eclipse.css">
+		<link rel="stylesheet" href="/resources/codemirror-5.59.2/theme/seti.css">
+		<link rel="stylesheet" href="/resources/codemirror-5.59.2/theme/dracula.css">
+		<!--支持代码折叠-->
+		<link rel="stylesheet" href="/resources/codemirror-5.59.2/addon/fold/foldgutter.css"/>
+		<script src="/resources/codemirror-5.59.2/addon/fold/foldcode.js"></script>
+		<script src="/resources/codemirror-5.59.2/addon/fold/foldgutter.js"></script>
+		<script src="/resources/codemirror-5.59.2/addon/fold/brace-fold.js"></script>
+		<script src="/resources/codemirror-5.59.2/addon/fold/comment-fold.js"></script>
+		<!--全屏模式-->
+		<link rel="stylesheet" href="/resources/codemirror-5.59.2/addon/display/fullscreen.css">
+		<script src="/resources/codemirror-5.59.2/addon/display/fullscreen.js"></script>
+		<!--括号匹配-->
+		<script src="/resources/codemirror-5.59.2/addon/edit/matchbrackets.js"></script>
+		<style type="text/css">
+		    .CodeMirror {
+		      border: 1px solid #eee;
+		      font-size: 16px;
+		    }
+		</style>
+</head>
+<body>
+<textarea id="code">
+public class Test{
+	public static void main(Sting[] args){
+    	System.out.println("HelloWorld");
+    }    
+}
+</textarea>
+</body>
+<script type="text/javascript">
+    var editor=CodeMirror.fromTextArea(document.getElementById("code"),{
+         //Java高亮显示
+         mode:"text/x-java",
+         //显示行号
+         lineNumbers:true,
+         // 只读
+         readOnly: "nocursor",
+         //设置主题
+         theme:"dracula",
+         //代码折叠
+         lineWrapping:true,
+         foldGutter: true,
+         gutters:["CodeMirror-linenumbers", "CodeMirror-foldgutter"],
+});
+    editor.setSize("100%", "100%");
+</script>
+</html>

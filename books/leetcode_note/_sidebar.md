@@ -1,0 +1,139 @@
+> 算法刷题笔记
+
+* [前言](books/leetcode_note/README.md)
+* 栈相关
+  * [栈的压入、弹出序列](books/get_offer/31_栈的压入_弹出序列.md)
+* 树相关
+  * [二叉树中的最大路径和](books/leetcode_note/124_二叉树中的最大路径和.md)
+  * [从前序与中序遍历序列构造二叉树](books/leetcode_note/105_从前序与中序遍历序列构造二叉树.md)
+  * [根据中序后序结果重建二叉树](books/get_offer/33_根据中序后序结果重建二叉树.md)
+  * [恢复二叉搜索树](books/leetcode_note/099_恢复二叉搜索树.md)
+  * [二叉树的最大深度](books/leetcode_note/104_二叉树的最大深度.md)
+  * [树的子结构](books/get_offer/26_树的子结构.md)
+  * [对称二叉树](books/get_offer/28_对称二叉树.md)
+  * [从上到下打印二叉树](books/get_offer/32_从上到下打印二叉树.md)
+  * [二叉树使用回溯算法](books/get_offer/34_二叉树中和为某一值的路径.md)
+  * [二叉搜索树与双向链表](books/get_offer/36_二叉搜索树与双向链表.md)
+  * [二叉树层次遍历与重建](books/get_offer/37_序列化二叉树.md)
+  * [二叉搜索树的第k大节点](books/get_offer/54_二叉搜索树的第k大节点.md)
+  * [判断平衡二叉树](books/get_offer/54_II_平衡二叉树.md)
+  * [二叉搜索树的最近公共祖先](books/get_offer/68_I_二叉搜索树的最近公共祖先.md)
+  * [二叉树的最近公共祖先](books/get_offer/68_II_二叉树的最近公共祖先.md)
+  * [N 叉树的前序遍历](books/leetcode_note/589_N叉树的前序遍历.md)
+  * [最大二叉树](books/leetcode_note/654_最大二叉树.md)
+  * [最大二叉树-II](books/leetcode_note/998_最大二叉树.md)
+* 链表相关
+  * [扁平化多级双向链表](books/leetcode_note/430_扁平化多级双向链表.md)
+  * [旋转链表](books/leetcode_note/61_旋转链表.md)
+  * [删除排序链表中的重复元素](books/leetcode_note/83_删除排序链表中的重复元素.md)
+  * [删除排序链表中的重复元素 II](books/leetcode_note/82_删除排序链表中的重复元素.md)
+  * [合并两个有序链表](books/leetcode_note/21_合并两个有序链表.md)
+  * [两数相加_II](books/leetcode_note/445_两数相加_II.md)
+* 动态规划相关
+  * [零钱兑换](books/leetcode_note/322_零钱兑换.md)
+  * [多边形三角刨分的最低分](books/leetcode_note/1039_多边形三角刨分的最低分.md)
+  * [正则表达式匹配](books/get_offer/19_正则表达式匹配.md)
+  * [连续子数组的最大和](books/get_offer/42_连续子数组的最大和.md)
+  * [n个骰子的点数](books/get_offer/60_n个骰子的点数.md)
+  * [字符串动态规划-最长回文子串](books/leetcode_note/5_最长回文子串.md)
+  * [字符串动态规划-最长公共子序列](books/leetcode_note/1143_最长公共子序列.md)
+* 回溯算法
+  * [回溯算法解题套路框架](books/leetcode_note/回溯算法解题套路框架.md)
+  * [N皇后](books/leetcode_note/51_N皇后.md)
+  * [矩阵中的路径](books/get_offer/12_矩阵中的路径.md)
+  * [字符串排列](books/get_offer/38_字符串排列.md)
+  * [把数字翻译成字符串](books/get_offer/46_把数字翻译成字符串.md)
+* BFS算法
+  * [BFS算法套路框架](books/leetcode_note/BFS算法套路框架.md)
+  * [打开转盘锁](books/leetcode_note/752_打开转盘锁.md)
+  * [47 最大礼物值](books/get_offer/47_最大礼物值.md)
+* 双指针技巧套路
+  * [双指针算法套路框架](books/leetcode_note/双指针套路框架.md)
+  * [快慢指针-环形链表](books/leetcode_note/141_环形链表检测.md)
+  * [快慢指针-链表中点](books/leetcode_note/876_链表的中间节点.md)
+  * [快慢指针-链表排序](books/leetcode_note/148_排序链表.md)
+  * [快慢指针-链表第K个元素](books/leetcode_note/19_删除链表中倒数第N个节点.md)
+  * [双指针-链表公共节点](books/leetcode_note/160_相交链表.md)
+  * [双指针-调整数组顺序使奇数位于偶数前面](books/get_offer/21_调整数组顺序使奇数位于偶数前面.md)
+  * [和为s的两个数字](books/get_offer/57_I_和为s的两个数字.md)
+* 二分查找
+  * [常规二分查找](books/leetcode_note/二分查找.md)
+  * [旋转数组的最小数字](books/get_offer/11_旋转数组的最小数字.md)
+  * [在排序数组中查找数字](books/get_offer/53_I_在排序数组中查找数字.md) 
+  * [0到n-1中缺失的数字](books/get_offer/53_II_0到n-1中缺失的数字.md)
+* 排序和图的基础概念
+  * [排序](books/leetcode_note/排序.md)
+  * [图](books/leetcode_note/图.md)
+* 滑动窗口问题
+  * [滑动窗口套路](books/leetcode_note/滑动窗口算法.md)
+  * [和为s的两个连续正数序列](books/get_offer/57_II_和为s的连续正数序列.md)
+  * [最小覆盖子串](books/leetcode_note/76_最小覆盖子串.md)
+* 困难题目解析
+  * [接雨水](books/leetcode_note/42_接雨水.md)
+  * [构建乘积数组](books/get_offer/66_构建乘积数组.md)
+* 位运算
+  * [二进制中1的个数](books/get_offer/15_二进制中1的个数.md)
+  * [数值的整数次方](books/get_offer/16_数值的整数次方.md)
+  * [数组中数字出现的次数_I](books/get_offer/56_I_数组中数字出现的次数.md)
+  * [数组中数字出现的次数_II](books/get_offer/56_II_数组中数字出现的次数.md)
+  * [快速乘(俄罗斯乘法)](books/get_offer/64_求12N和.md)
+  * [位运算实现加法](books/get_offer/65_不用加减乘除做加法.md)
+  * [颠倒二进制位](books/leetcode_note/190_颠倒二进制位.md)
+* 摩尔投票法
+  * [数组中出现次数超过一半的数字](books/get_offer/39_数组中出现次数超过一半的数字.md)
+* 堆排序
+  * [top K](books/get_offer/40_最小的K个数.md)
+* 贪心算法
+  * [把数组排成最小的数](books/get_offer/45_把数组排成最小的数.md)
+* 利用排序特性
+  * [归并排序-数组中的逆序对](books/get_offer/51_数组中的逆序对.md)
+  * [归并排序-寻找两个正序数组的中位数](books/leetcode_note/4_寻找两个正序数组的中位数.md)
+* 分治思想
+  * [数组中的逆序对](books/get_offer/51_数组中的逆序对.md)
+  * [汉诺塔问题](books/leetcode_note/m_8_6_汉诺塔问题.md)
+* 单调队列
+  * [滑动窗口的最大值](books/get_offer/59_I_滑动窗口的最大值.md)
+  * [队列的最大值](books/get_offer/59_II_队列的最大值.md)
+* 约瑟夫问题
+  * [圆圈中最后剩下的数字](books/get_offer/62_圆圈中最后剩下的数字.md)
+* 逻辑短路
+  * [求1+2+…+n](books/get_offer/64_求12N和.md)
+* 数据结构设计
+  * [LRU](books/leetcode_note/146_LRU.md)
+  * [前缀树(字典树)](books/leetcode_note/前缀树.md)
+  * [并查集]()
+* 贪心
+  * [有效的括号字符串](books/leetcode_note/678_有效的括号字符串.md)
+* 数组
+  * [螺旋矩阵](books/leetcode_note/59_II_螺旋矩阵.md)
+* DFS
+  * [岛屿的周长](books/leetcode_note/463_岛屿周长.md)
+  * [岛屿的数量](books/leetcode_note/200_岛屿数量.md)
+  * [统计封闭岛屿的数目](books/leetcode_note/1254_统计封闭岛屿的数目.md)
+  * [岛屿的最大面积](books/leetcode_note/695_岛屿的最大面积.md)
+* 炒股专题
+  * [买卖股票的最佳时机](books/leetcode_note/121_买卖股票的最佳时机.md)
+  * [买卖股票的最佳时机_II](books/leetcode_note/122_买卖股票的最佳时机.md)
+  * [买卖股票的最佳时机_III](books/leetcode_note/123_买卖股票的最佳时机.md)
+* 打劫专题
+  * [打家劫舍](books/leetcode_note/198_打家劫舍.md)
+  * [打家劫舍_II](books/leetcode_note/213_打家劫舍.md)
+  * [打家劫舍_III-**树形DP**](books/leetcode_note/337_打家劫舍.md)
+* 计算器
+  * [中缀表达式](books/leetcode_note/224_中缀表达式.md) 
+  * [后缀表达式](books/leetcode_note/150_后缀表达式.md) 
+* 背包问题
+  * [01背包经典问题](books/leetcode_note/01背包经典问题.md)
+  * [01背包变种问题-分割等和子集](books/leetcode_note/416_分割等和子集.md)
+  * [01 背包变种问题-目标和](books/leetcode_note/494_目标和.md)
+  * [完全背包](books/leetcode_note/322_零钱兑换.md)
+  * [完全背包组合](books/leetcode_note/518_零钱兑换.md)
+  
+* 单调栈
+  * [接雨水](books/leetcode_note/单调栈_1_接雨水.md)
+  * [子数组的最小和](books/leetcode_note/单调栈_2_子数组的最小值之和.md)
+  * [每日温度](books/leetcode_note/单调栈_3_每日温度.md)
+  * [柱状图中的最大矩形](books/leetcode_note/单调栈_4_柱状图中的最大矩形.md)
+
+* 字符串
+  * [* 重复的子字符串](books/leetcode_note/495_重复的子字符串.md)
