@@ -33,4 +33,4 @@
 
 ## Python
 
-* [Python 笔记](god/README.md)
+* [Python 笔记](god/python_note/README.md)
