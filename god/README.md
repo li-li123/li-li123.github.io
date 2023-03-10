@@ -1,9 +1,10 @@
 > 欢迎进入 God 空间
+
 <center>❤❤ 梦丽 ❤❤</center>
 <center><img src="https://ning-wang.oss-cn-beijing.aliyuncs.com/blog-imags/learn.jpg" alt="learn" style="zoom: 33%;" /></center>
 
-
 ## 随笔
+
 * [随笔](god/note/READEMD.md)
 
 ## 极客时间
@@ -28,7 +29,8 @@
 ## Go
 
 * [并发编程](god/go_concurrent/1.Goroutine.md)
-*  [常用代码片段](god/golang-common/1.yaml.md)
+* [常用代码片段](god/golang-common/1.yaml.md)
 
+## Python
 
-
+* [Python 笔记](god/README.md)
