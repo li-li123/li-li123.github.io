@@ -9,7 +9,7 @@ for i in range(len(list_a)):
         print(list_a[i][j],end=',')
 ```
 
-#### 切片的索引方式
+切片的索引方式
 
 注意事项：切片一个完整的切片是包含三个参数和两个冒号" : " ,用于分隔三个参数(start_index、end_index、step)
 
@@ -44,7 +44,7 @@ print(list_a)
 
 #### 查找列表中最大或最小值
 
-首先假设一个最小值min_num，通常是min_um=list[0],然后会和后面的每一个列表元素进行比较，遇到更小的值时便将min_num替换为该值，如此循环直至列表遍历完成，最后的min_num值便是一小值
+首先假设一个最小值min_num，通常是min_um=list[0],然后会和后面的每一个列表元素进行比较，遇到更小的值时便将min_num替换为该值，如此循环直至列表遍历完成，最后的min_num值便是最小值，因为遍历了list中的每一个元素，所以时间复杂度尾n
 
 ```python
 list_a = [4,5,67,8,2,1,9,90]
@@ -66,11 +66,14 @@ print(list_a *3)
 
 ### 列表增长
 
-appenf的增长是囫囵个的添加
+appen()、extend()区别append()是在列表末尾添加新的对象（即整体添加至列表中），也可以单个元素的添加。
 
-```python
-list_a = [1,2,3]
-list_b = [4,5,6]
-list_a.append(4)
-list_a.append(list_b)
+```Python
+
+    def list_appden(self,list_a):
+        self.list_b = [1,2,3,4,5,6,7,8,9,0]
+        self.list_b.append(list_a)
+        return self.list_b
 ```
+
+extend()可以合并两个列表，list1.extend(list2),意思是将list2中的元素按顺序添加至list1中
