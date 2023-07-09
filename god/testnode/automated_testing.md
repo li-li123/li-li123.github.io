@@ -49,22 +49,16 @@ Selenium 是一款十分流行的开源自动化测试框架，主要用于 web 
 8类：ID定位、name定位、Class Name定位、Tag Name定位、Link Text定位、partial Link定位、CSS Selector定位、Xpath定位
 
 1. 通过ID定位：这是最直接也是最常用的定位方式，只要元素的id是唯一的。
-
 2. 通过Name定位：对于有Name属性的元素可以使用Name定位。
-
 3. 通过Class Name定位：对于有Class属性的元素可以使用Class Name定位。
-
 4. 通过Tag Name定位：可以通过标签名进行定位，通常用于查找一组或多个具有相同标签名称的元素。
-
 5. 通过Link Text定位：对于链接（`<a>`标签），可以直接通过链接的文本进行定位。
-
 6. 通过Partial Link Text定位：对于文本过长的链接，可以通过链接的部分文本进行定位。
-
 7. 通过CSS Selector定位：可以使用CSS选择器定位元素，这是一种非常强大而灵活的定位方式。
-
 8. 通过XPath定位：XPath 是一种在 XML 文档中查找信息的语言，可以用来在 HTML 中定位元素。这也是一种非常强大的定位方式，尤其是在其他方式难以定位元素的情况下。
 
    ### Selenium引用的库
+
 
    ```python
    import time
@@ -97,9 +91,8 @@ driver.get(taobao_url)
 
 ### Selenium元素定位方法
 
-```
+```python
 # ID定位方法
 element = driver.find_element(By.ID, "fm-login-id")
 element.send_keys("18292811977")
 ```
-
