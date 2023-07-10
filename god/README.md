@@ -34,3 +34,7 @@
 ## Python
 
 * [Python 笔记](god/python_note/README.md)
+
+## 测试
+
+* [自动化测试](god/testnode/automated_testing.md)
