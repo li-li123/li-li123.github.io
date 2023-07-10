@@ -38,3 +38,4 @@
 ## 测试
 
 * [自动化测试](god/testnode/automated_testing.md)
+* [刷题日记](god/testing/01将字符串中空格改为A.md)
