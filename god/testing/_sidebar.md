@@ -1,2 +1,2 @@
 * 刷题笔记
-* [将字符串中空格改为A](god/testing/01将字符串中空格改为A.md)
+* [python笔记1](god/testing/python笔记1.md)
