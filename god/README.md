@@ -9,4 +9,4 @@
 ## 测试笔记
 
 * [自动化测试](god/testnode/automated_testing.md)
-* [刷题日记](god/testing/_sidebar.md)
+* [python笔记1](god/testing/python笔记1.md)
