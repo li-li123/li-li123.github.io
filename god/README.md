@@ -6,7 +6,7 @@
 
 * [Python 笔记](god/python_note/README.md)
 
-## 测试
+## 测试笔记
 
 * [自动化测试](god/testnode/automated_testing.md)
 * [刷题日记](god/testing/_sidebar.md)
