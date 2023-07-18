@@ -2,9 +2,9 @@
 
 <center><img src="https://ning-wang.oss-cn-beijing.aliyuncs.com/blog-imags/learn.jpg" alt="learn" style="zoom: 33%;" /></center>
 
-## Python
+## Python学习笔记
 
-* [Python 笔记](god/python_note/README.md)
+* [Python 学习手册](god/python_note/README.md)
 
 ## 测试笔记
 
