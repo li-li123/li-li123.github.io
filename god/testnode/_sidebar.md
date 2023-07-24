@@ -1,1 +1,2 @@
-* [什么是自动化测试](god/testnode/automated_testing.md)
+* [python使用入门](python使用入门.md)
+* [python如何运行程序](python如何运行程序.md)
