@@ -8,17 +8,26 @@
 5. tem插入到该元素的后面，如果已排序所有元素都大于tem，则将tem插入到下表为0的位置
 6. 重复步骤2~5
 ```python
-    def InsertStort1(self,param):
-        for start in range(len(param)-1):
-            end = start
-            tem = param[end+1]
-            while (end >= 0):
-                if tem < param[end]:
-                    param[end+1] = param[end]
-                    end = end-1
-                else:break
-            param[end+1] =tem
-        return param
+            def InsertSort(self,param):
+        # 首先判断列表是否为空，
+        if len(param) <= 1:
+            return param
+        else:
+            # 从第2个数开始比较
+            for i in range(1,len(param)):
+                # 首先将第2个数存在key里面
+                key = param[i]
+                # 然后从key开始依次向前遍历
+                j = i-1
+                # j不为负且key的值比前面的数小，都会进行下面的操作
+                while j >=0 and key < param[j]:
+                    # 第一步：先把key前面的数往后挪一位
+                    param[j+1] = param[j]
+                    # 为下一个数比较做准备，j向前移一位
+                    j =j- 1
+                # 当key>param[j]时，将key插入到j所指的下一个位置
+                param[j+1] = key
+            return param
 ```
 ```python
     def InsertStort(self,param):
