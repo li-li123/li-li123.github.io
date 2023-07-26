@@ -7,8 +7,17 @@
 4. 重复步骤3，直到找到已排序元素中小于等于tem的元素
 5. tem插入到该元素的后面，如果已排序所有元素都大于tem，则将tem插入到下表为0的位置
 6. 重复步骤2~5
+#### 方法分析一：
+1. j = i-1：的意思是指key是从i位置取出的，然后key只需要和前面的元素进行比较
+2. while j >=0 and key < param[j]:如果key前面的数比key大，则继续循环继续查找，直到碰到第一个比key小的数之后不再进入循环
+   while （条件）：{
+      循环体语句
+   }
+   while循环的执行过程是：先判断条件是否成立，如果成立则执行循环体语句，然后再次判断条件是否成立，如果成立则再次执行循环体语句，以此类推，知道条件不成立时跳出循环。
+3. param[j+1] = key：如果param[j]<key,则吧key插入param[i]后面
+#### 代码实现
 ```python
-            def InsertSort(self,param):
+def InsertSort(self,param):
         # 首先判断列表是否为空，
         if len(param) <= 1:
             return param
@@ -29,14 +38,7 @@
                 param[j+1] = key
             return param
 ```
-方法分析一：
-1. j = i-1：的意思是指key是从i位置取出的，然后key只需要和前面的元素进行比较
-2. while j >=0 and key < param[j]:如果key前面的数比key大，则继续循环继续查找，直到碰到第一个比key小的数之后不再进入循环
-   while （条件）：{
-      循环体语句
-   }
-   while循环的执行过程是：先判断条件是否成立，如果成立则执行循环体语句，然后再次判断条件是否成立，如果成立则再次执行循环体语句，以此类推，知道条件不成立时跳出循环。
-3. param[j+1] = key：如果param[j]<key,则吧key插入param[i]后面
+
 ```python
     def InsertStort(self,param):
         for end in range(1,len(param)):
