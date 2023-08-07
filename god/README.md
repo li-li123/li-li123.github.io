@@ -8,6 +8,6 @@
 
 ## 练习笔记
 * [剑指精讲典型编程题](testing/剑指精讲典型编程题.md)
-* [八大排序](testing/SORT.md)
+* [八大排序](testnode/SORT.md)
 ## 自动化测试笔记
 * [自动化测试](testnode/automated_testing.md)
