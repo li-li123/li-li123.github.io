@@ -42,3 +42,4 @@
 ## Python笔记
 
 * [Python笔记](god/testnode/1.1_python使用入门.md)
+* [自动化测试框架](god/auto-unitest/_sidebar.md)
