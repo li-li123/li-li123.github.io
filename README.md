@@ -39,4 +39,6 @@
 ## 🔐
 
 * [🔐](god/README.md)
-*
+## Python笔记
+
+* [Python笔记](god/testnode/1.1_python使用入门.md)
