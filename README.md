@@ -36,10 +36,6 @@
 
 * [Redis 从入门到高可用实践](books/redis/第1章_Redis初识.md)
 
-## 🔐
-
-* [🔐](README.md)
 ## Python笔记
-
 * [Python笔记](god/testnode/1.1_python使用入门.md)
-* [自动化测试框架](god/auto-unitest/_sidebar.md)
+* [自动化测试框架](god/auto-unitest/4.1_automa-layer.md)
