@@ -135,11 +135,100 @@
 </body>
    ```
    2. 获取下一个节点
+     语法格式：
+     nextSibling:返回当前的节点下一个节点
+     nextElementSibling:返回当煎节点的下一个元素节点
+```html
+<body>
+    <ul class ='list'>
+    	<li>1</li>
+    	<li>2</li>
+    	<li>3</li>
+    </ul>
+    <scrip>
+        // js获取元素
+	let list = document.querySelector('.list');
+	//返回当前节点的下一个节点
+	console.log(list.nextsibling);
+	//返回当前节点的下一个元素节点
+	console.log(list.children 1].nextElementsibling);
+    </scrip>
+</body>
+```
    3. 获取子节点的方法
+      语法格式：
+        childNodes:返回当前节点的所有子节点
+	children:返回当前节点的所有元素子节点
+	firstChild:返回当前节点的第一个子节点
+	lastChild:返回当前节点的最后一个子节点
+	firstElementChild:返回当前节点的第一个元素子节点
+	lastElementChild:返回当前节点的最后一个元素子节点
+ ```html
+ <body>
+    <ul class ='list'>
+    	<li>1</li>
+    	<li>2</li>
+    	<li>3</li>
+    </ul>
+    <scrip>
+        // js获取元素
+	let list = document.querySelector('.list');
+	//返回当前节点的所有子节点
+	console.log(list.childNodes);
+	//返回当前节点的所有元素子节点
+	console.log(list.children);
+	//返回当前节点的第一个子节点
+	console.log(list.firstChild);
+	//返回当前节点的最后一个子节点
+	console.log(list.lastChild);
+	//返回当前节点的第一个元素子节点
+	console.log(list.firstElementChild);
+	//返回当前节点的最后一个元素子节点
+	console.log(list.lastElementChild);
+    </scrip>
+</body>
+ ```
    4. 获取父节点方法
+   语法格式： parentNode:返回当前节点的父节点；
+```html
+ <body>
+    <ul class ='list'>
+    	<li>1</li>
+    	<li>2</li>
+    	<li>3</li>
+    </ul>
+    <scrip>
+        // js获取元素
+	let list = document.querySelector('.list');
+	//返回当前节点的父节点
+	console.log(list.children[1].parentNode);
+    </scrip>
+</body>
+```
 5. 创建节点
+语法格式:
+  1，生成节点的方法:
+	document.createElement ("div");
+  2，插入节点：
+	父元素.appendChild(新节点)； //在父元素的子节点后面插入新节点
+  3，在指定位置插入新的节点
+	父元素.inSertBefore(新节点；谁的前面） //将新节点插入指定元素前面
+  4，删除元素节点:
+	父元素.removerChild();
+
 6. 设置/修改DOM元素内容
    1. document.write()方法
-   2. 元素.
+      注意：
+	只能将文本内容追加到</body>前面的位置；
+	文本中包含的标签会被解析。
+代码示例：
+ ```javascript
+	//永远都只是追加操作，而且只能在位置<body>前
+	<script>
+	document.write('hello world');
+	document.write('<h3>你好，世界！<h3>');
+	<script>
+  ```
+   3. 元素.
 8. 
 6. 
