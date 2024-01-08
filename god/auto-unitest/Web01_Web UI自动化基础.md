@@ -48,7 +48,7 @@
 
 3. 获取元素节点：
 
-   1. 根据id获取
+   i. 根据id获取
   语法规范: document.getElementById(id名);   //返回的是一个节点对象   注意:获取指定的id，获取的元素是唯一的
 代码示例：
    ```html
@@ -60,7 +60,7 @@
    	</script>
    </body>   
    ```
-    2. 根据name获取        语法规范:document.getElementByName(name名称)	//返回的是一个数组
+    ii. 根据name获取        语法规范:document.getElementByName(name名称)	//返回的是一个数组
 注意：
   (1)这个方法不论获取几个元素都是为数组的形式
   (2)如果页面没有这个元素，则返回的是空的伪数组
@@ -73,7 +73,7 @@
     </scrip>
 </body>
 ```
-   3. 根据className获取
+   iii. 根据className获取
 语法规范：document.getElementByClassName（class名称）   返回的是一个数组
 代码示例：
 ```html
@@ -85,7 +85,7 @@
     </scrip>
 </body>
 ```
-   4. 根据tagName获取	语法规范：document.getElementsByTagName(标签名称)//返回的是一个数组
+   iiii. 根据tagName获取	语法规范：document.getElementsByTagName(标签名称)//返回的是一个数组
 代码示例：
 ```html
 <body>
@@ -96,7 +96,7 @@
     </scrip>
 </body>
 ```
-   5. 根据选择器获取
+   iiiii. 根据选择器获取
 	语法规范：document.querySelector()   返回一个dom节点对象，没有返回Nulldocument.querySelectorALL()  //返回的是一个数组，没有返回空数组 
 代码示例：
 ```html
@@ -112,5 +112,34 @@
     </scrip>
 </body>
 ```
-  
-
+4. 获取元素节点相关的其他节点
+   1. 获取上一个节点
+   语法格式：
+	previousSibling:返回档期那节点的上一个节点
+	previousElementSibling:返回当前节点的上一个元素节点
+   ```html
+   <body>
+    <ul class ='list'>
+    	<li>1</li>
+    	<li>2</li>
+    	<li>3</li>
+    </ul>
+    <scrip>
+        // js获取元素
+	let list = document.querySelector('.list');
+	//返回当前节点的上一个节点
+	console.log(list.previoussibling);
+	返回当前节点的上一个元素节点
+	console.log(list.children[1].previousElementSibling);
+    </scrip>
+</body>
+   ```
+   2. 获取下一个节点
+   3. 获取子节点的方法
+   4. 获取父节点方法
+5. 创建节点
+6. 设置/修改DOM元素内容
+   1. document.write()方法
+   2. 元素.
+8. 
+6. 
