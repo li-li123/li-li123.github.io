@@ -133,7 +133,8 @@
 	console.log(list.children[1].previousElementSibling);
     </scrip>
 </body>
-   ```
+
+   
    2. 获取下一个节点
      语法格式：
      nextSibling:返回当前的节点下一个节点
@@ -187,7 +188,7 @@
 	console.log(list.lastElementChild);
     </scrip>
 </body>
- ```
+```
    4. 获取父节点方法
    语法格式： parentNode:返回当前节点的父节点；
 ```html
@@ -205,15 +206,16 @@
     </scrip>
 </body>
 ```
+
 5. 创建节点
 语法格式:
-  1，生成节点的方法:
+1，生成节点的方法:
 	document.createElement ("div");
-  2，插入节点：
+2，插入节点：
 	父元素.appendChild(新节点)； //在父元素的子节点后面插入新节点
-  3，在指定位置插入新的节点
+3，在指定位置插入新的节点
 	父元素.inSertBefore(新节点；谁的前面） //将新节点插入指定元素前面
-  4，删除元素节点:
+4，删除元素节点:
 	父元素.removerChild();
 
 6. 设置/修改DOM元素内容
@@ -222,13 +224,13 @@
 	只能将文本内容追加到</body>前面的位置；
 	文本中包含的标签会被解析。
 代码示例：
- ```javascript
+```javascript
 	//永远都只是追加操作，而且只能在位置<body>前
 	<script>
 	document.write('hello world');
 	document.write('<h3>你好，世界！<h3>');
 	<script>
-  ```
+```
    3. 元素.
 8. 
 6. 
