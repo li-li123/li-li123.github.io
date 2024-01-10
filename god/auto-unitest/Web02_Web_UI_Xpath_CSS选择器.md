@@ -92,6 +92,10 @@ Xpath通过通配符来选取位置的XML元素
 |contains|//div[contains(@id," ma” )]|选取所有id值包含ma的div节点|
 |	and|//div[contains(@id," ma” ) and contains(@id," in”)]|选取id值包含ma和in的div节点 |
 |text()|//div[contains(text(),” ma”)]|选取节点文本包含ma的div节点 |
+注意事项：
+1)按照审查元素的写法不一定正确，要按照网页源码的才行
+2)浏览器有自带的复制xpath功能，firefox下载firebug插件
+3)xpath有c的速度，所以按照[@class=""]准确性较高
 
 
 
