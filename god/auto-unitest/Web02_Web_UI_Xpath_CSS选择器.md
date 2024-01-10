@@ -98,4 +98,27 @@ Xpath通过通配符来选取位置的XML元素
 3)xpath有c的速度，所以按照[@class=""]准确性较高
 
 
+### CCS选择器语法
+|语法|说明|
+|----|----|
+|*|选择所有节点|
+|#container|选择id为container|
+|.container|选择所有class包含container的节点|
+|div,p|选择所有div元素和所有p元素|
+|li a|选取所有li下所有a节点|
+|ul+p|选取ul后面的第一个ul子元素|
+|div#container>ul|选取id为container的div的第一个ul子元素|
+|ul~p|选取与ul相邻的所有p元素|
+|a[title]|选取所有属性有title属性的a元素|
+|a[href=”http://baidu.com“]|选取所有herf属性为http://baidu.com的a元素|
+|a[href*=”baidu”]|选取所有href属性值中包含baidu的a元素|
+|a[href^=”http”]|选取所有href属性值中以http开头的a元素|
+|a[href$=”.jpg”]|选取所有href属性值中以.jpg结尾的a元素|
+|input[type=radio]:checked|选择选中的radio的元素|
+|div:not(#container)|选取所有id为非container 的div属性|
+|li:nth-child(3)|选取第三个li元素|
+|li:nth-child(2n)|选取第偶数个li元素|
+|a::attr(href)|选取a标签的href属性|
+|a::text|选取a标签下的文本|
 
+关于更多CSS语法，可以查看
