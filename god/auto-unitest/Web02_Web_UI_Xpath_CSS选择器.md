@@ -85,11 +85,13 @@ Xpath通过通配符来选取位置的XML元素
 
 使用功能函数能够更好的进行模糊搜索
 
+
 | 函数 | 用法 | 解释 |
 | ---- | ---- | ---- |
-|      |      |      |
-|      |      |      |
-|      |      |      |
-|      |      |      |
-|          |               |                                      |
+|starts-with|//div[starts-with(@id," ma”)]|选取id值以ma开头的div节点|
+|contains|//div[contains(@id," ma” )]|选取所有id值包含ma的div节点|
+|	and|//div[contains(@id," ma” ) and contains(@id," in”)]|选取id值包含ma和in的div节点 |
+|text()|//div[contains(text(),” ma”)]|选取节点文本包含ma的div节点 |
+
+
 
