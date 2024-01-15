@@ -35,3 +35,7 @@ driver.find_element_by_partial_link_text("d文本链接部分链接")
  ```python
 driver.find_element_by_partial_by_xpath("路径")
 ```
+8. CSS定位
+```python
+driver.find_element_by_css_selector("div>h>a)
+```
