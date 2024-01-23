@@ -128,3 +128,18 @@ if __name__=="__main__":
     print(getList(a,None,None,-1))
 
 ```
+### 复制列表
+1. 方法一：切片
+```python
+list_a = [1,2,3,4,5,6,7,8,9,10]
+print(list_a[:])
+```
+2. 方法二：for循环遍历
+```python
+list_a = [1,2,3,4,5,6,7,8,9,10]
+print(list_a[:])
+list_b=[]
+for number in list_a:
+    list_b.append(number)
+print(list_b)
+```
