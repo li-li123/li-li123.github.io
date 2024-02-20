@@ -22,4 +22,12 @@ for alien in aliens[:5]:
     print(alien)
 print('...')
 ```
-
+### 在字典中存储列表
+```python
+pizza = {'crust':'thick',
+         'topping':['mushrooms','extra cheese']}
+print ('You ordered a'+pizza['crust']+'-crust pizza'+"with the followering toppings:")
+for topping in pizza['topping']:
+    print('\t'+topping)
+```
+### 在字典中存储字典
