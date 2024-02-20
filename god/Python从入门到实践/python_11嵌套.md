@@ -31,3 +31,24 @@ for topping in pizza['topping']:
     print('\t'+topping)
 ```
 ### 在字典中存储字典
+```python
+users = {
+    'aeinstein':{
+        'first':'albert',
+        'last':'einstein',
+        'localtion':'princeton'
+    },
+    'mcurie':{
+        'first':'matie',
+        'last':'curie',
+        'localtion':'paris',
+    },
+}
+for username ,user_info in users.items():
+    print('\nusername: '+username)
+    full_name = user_info['first']+" "+user_info['last']
+    localtion = user_info['localtion']
+
+    print("\tFull name:"+full_name.title())
+    print('\tlocation: '+localtion.title())
+```
