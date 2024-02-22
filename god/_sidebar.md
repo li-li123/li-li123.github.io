@@ -4,6 +4,6 @@
   * [python 如何运行程序](god/testnode/python如何运行程序.md)
  
 * **练习笔记**
-*   * [python 如何运行程序](god/testing/03_数组中重复的数字.md)
+   * [刷题笔记](god/testing/03_数组中重复的数字.md)
 * **自动化测试笔记**
    * [自动化测试](testnode/automated_testing.md)
