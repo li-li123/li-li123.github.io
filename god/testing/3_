@@ -1,0 +1,15 @@
+    def isValid(self,s:str):
+        if len(s)<=1:
+            return len(s)
+        repeat_s = {}
+        temp =''
+        for char_s in s:
+            if char_s not in temp:
+                temp += char_s
+            else:
+                repeat_s[len(temp)] = temp
+                print(repeat_s)
+                index = s.find(char_s)
+                temp += char_s
+                temp=temp[index+1:]
+        return max(repeat_s)
