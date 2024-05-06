@@ -41,3 +41,4 @@
 * [自动化测试框架](god/auto-unitest/4.1_automa-layer.md)
 * [python 从入门到实践](god/Python从入门到实践/python_01Linux系统搭建Python编程环境.md)
 * [刷题笔记](god/testing/03_数组中重复的数字.md)
+* [接口测试](god/API_testing)
