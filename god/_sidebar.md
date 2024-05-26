@@ -7,3 +7,5 @@
    * [刷题笔记](god/testing/03_数组中重复的数字.md)
 * **自动化测试笔记**
    * [自动化测试](testnode/automated_testing.md)
+* **手机自动化测试**
+    * [adb环境配置](god/APP_testing/adb安装.md)
