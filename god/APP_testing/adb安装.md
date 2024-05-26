@@ -7,7 +7,9 @@
   ![image-20240526173823431](https://ning-wang.oss-cn-beijing.aliyuncs.com/blog-images/image-20240526173823431.png)
 2. 安装adb完成，配置环境变量
 
-   ![image-20240526174232390](https://ning-wang.oss-cn-beijing.aliyuncs.com/blog-images/image-20240526174300675.png)
+   ![image-20240526194728351](https://ning-wang.oss-cn-beijing.aliyuncs.com/blog-images/image-20240526194728351.png)
+
+
 3. 验证adb
 ```sh
 $ adb version
@@ -21,36 +23,36 @@ $ adb version
 ```sh
 adb start-server
 ```
-2. 获取当前设备连接
+1. 获取当前设备连接
 ```sh
  adb devices
 ```
-3. 唤醒手机
+1. 唤醒手机
 ```sh
 adb shell input keyevent 26
 ```
-4. adb命令安装apk
+1. adb命令安装apk
 ```sh
 $ adb install '安装软件在电脑中的路径'
 ```
-5. 卸载apk
+1. 卸载apk
 ```sh
 adb -unstall [-k] <应用包名>
 ```
 [-k]:参数可选，表示卸载应用但保留数据和缓存目录；
-6. 清除应用数据和缓存
+1. 清除应用数据和缓存
 ``` sh
 $ adb ahell pm clear 包名
 ```
-7. 耗电量信息
+1. 耗电量信息
 ```sh
 $ adb shell dumpsysy 包名
 ```
-8. CPU使用率信息
+1. CPU使用率信息
 ```sh
 adb shell dumpsys cpuinfo
 ```
-9. 日志获取
+1. 日志获取
 ```sh
 $ adb shell am logcat>路径
 ```
