@@ -43,3 +43,6 @@
 * [刷题笔记](god/testing/03_数组中重复的数字.md)
 * [接口测试](god/API_testing/API_001接口测试基础知识.md)
 * [练习题知识点总结](god/知识点总结/练习知识点.md)
+
+##   手机自动化测试
+* [adb环境配置](god/APP_testing/adb安装.md)
