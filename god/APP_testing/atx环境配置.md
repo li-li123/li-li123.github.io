@@ -30,5 +30,5 @@ https://github.com/codeskyblue/uiautodev
 ```python
 import uiautomator2 as u2
 ```
-2. 
+
 
