@@ -8,3 +8,4 @@
   *  [Web UI自动化基础_Selenium基础](god/auto-unitest/Web02_Web_UI_selenium基础.md)
   *  [Web UIXpath_Selenium元素定位大全](god/auto-unitest/Web02_Web_UI_selenium元素定位.md)
   *  [Web UIXpath_Xpath基本语法和CSS选择器语法](god/auto-unitest/Web02_Web_UI_Xpath_CSS选择器.md)
+  *  [Web UI自动化基础_Selenium基本操作](Web UI自动化基础_Selenium基础)
