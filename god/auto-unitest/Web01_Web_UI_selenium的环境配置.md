@@ -21,7 +21,7 @@ def chromdrive(self):
 ### 配置驱动，以Chrome浏览器为例
 1. 下载`Chrome`驱动及其相应的Chrome浏览器：https://googlechromelabs.github.io/chrome-for-testing/
 2. 将驱动器中文件移动到python路径下
-3. 电脑中已经安装Chrome，但是不想更换的，在编写脚本时配置好浏览器路径即可：
+3. 电脑中已经安装Chrome不想删除，且与驱动版本不匹配，在编写脚本时配置好与驱动相应的浏览器路径即可：
 ```python
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
