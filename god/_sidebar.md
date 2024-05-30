@@ -9,3 +9,5 @@
    * [自动化测试](testnode/automated_testing.md)
 * **手机自动化测试**
     * [adb环境配置](god/APP_testing/adb安装.md)
+* **Web_UI自动化**
+    * [Selenium的应用](god/auto-unitest/Web01_Web_UI_selenium的环境配置.md)
