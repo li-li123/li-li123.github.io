@@ -51,6 +51,19 @@ from selenium.webdriver.common.keys import Keys
 ```python
 self.find_text.send_keys(Keys.SPACE*5)
 ```
+### 5. 模拟鼠标的操作
+1. 点击左键、右键
+· 左键
+```python
+find_submit = self.driver.find_element('id','su')
+find_submit.click()
+self.driver.save_screenshot('result1.png')
+```
+2. 右键
+```python
+
+```
+3. 
 ### 5. 截屏
 1. 截取固定元素
 ```python
@@ -103,31 +116,66 @@ self.driver.save_screenshot('result.png')
         joint.paste(img1,loc1)
         joint.paste(img2,loc2)
         joint.save(output)
-        
-        
-    self.find_log = self.driver.find_element('id','s_lg_img')
-    self.find_log.screenshot('result2.png')
-    JS = {
-        '滚动到页尾': "window.scroll({top:document.body.clientHeight,left:0,behavior:'auto'});",
-        '滚动到': "window.scroll({top:%d,left:0,behavior:'auto'});",
-    }
-    #        获取body大小
-    body_h = int(self.driver.find_element('xpath', '//body').size.get('height'))
-    #         计算当前页面截图高度
-    # （使用driver。get_window_size()也可以获取高度，但有误差，推荐使用图片高度计算
-    current_h = Image.open('result2.png').size[1]
-    image_list = ['result2.png']
-    for i in range(1,int(body_h/current_h)):
-        #     1. 滚动到指定锚点
-        self.driver.execute_script(JS['滚动到']%(current_h*i))
-        #2. 截图
-        self.driver.save_screenshot(f'test_{i}.png')
-        self.join_png('result2.png',f'test_{i}.png')
-        # 处理最后一张图片
-        self.driver.execute_script(JS['滚动到页尾'])
-        self.driver.save_screenshot('test_end.png')
-        #拼接图片
-        self.join_png('result.png', 'test_end.png', size=current_h - int(body_h % current_h))
+```
+5. 滚动截图
+```python
+from selenium import webdriver
+from PIL import Image
+
+from selenium.webdriver.chrome.options import Options
+
+option = Options()
+option.binary_location =  r'D:\zml\chrome-win64\chrome.exe'
+driver = webdriver.Chrome(options=option)
+driver.maximize_window()
+driver.get('https://www.baidu.com/s?wd=%E7%99%BE%E5%BA%A6%E7%83%AD%E6%90%9C&sa=ire_dl_gh_logo_texing&rsv_dl=igh_logo_pcs')
+driver.save_screenshot('result.png')
+
+def join_images(png1, png2, size=0, output='result.png'):
+    """
+    图片拼接
+    :param png1: 图片1
+    :param png2: 图片2
+    :param size: 两个图片重叠的距离
+    :param output: 输出的图片文件
+    :return:
+    """
+    # 图片拼接
+    img1, img2 = Image.open(png1), Image.open(png2)
+    size1, size2 = img1.size, img2.size  # 获取两张图片的大小
+    joint = Image.new('RGB', (size1[0], size1[1]+size2[1]-size))    # 创建一个空白图片
+    # 设置两张图片要放置的初始位置
+    loc1, loc2 = (0, 0), (0, size1[1] - size)
+    # 分别放置图片
+    joint.paste(img1, loc1)
+    joint.paste(img2, loc2)
+    # 保存结果
+    joint.save(output)
+
+
+JS = {
+    '滚动到页尾': "window.scroll({top:document.body.clientHeight,left:0,behavior:'auto'});",
+    '滚动到': "window.scroll({top:%d,left:0,behavior:'auto'});",
+}
+# 获取body大小
+body_h = int(driver.find_element('xpath', '//body').size.get('height'))
+# 计算当前页面截图的高度
+# （使用driver.get_window_size()也可以获取高度，但有误差，推荐使用图片高度计算）
+current_h = Image.open('result.png').size[1]
+image_list = ['result.png']  # 储存截取到的图片路径
+
+for i in range(1, int(body_h/current_h)):
+    # 1. 滚动到指定锚点
+    driver.execute_script(JS['滚动到'] % (current_h * i))
+    # 2. 截图
+    driver.save_screenshot(f'test_{i}.png')
+    join_images('result.png', f'test_{i}.png')
+# 处理最后一张图
+driver.execute_script(JS['滚动到页尾'])
+driver.save_screenshot('test_end.png')
+# 拼接图片
+join_images('result.png', 'test_end.png', size=current_h-int(body_h % current_h))
+
 ```
 ### 3. 控制浏览器后退、前进
 ```python
