@@ -50,7 +50,16 @@ actions.perform()
 - send_keys_to_element(element,*kets_to_send)：发送某个键到指定元素
 
 ### 5. 实操测试
-
+```python
+action = ActionChains(self.driver)
+find_text = self.driver.find_element('id', user_login_id)
+time.sleep(2.0)
+find_pws = self.driver.find_element('id', pwd_login_id)
+time.sleep(2.0)
+fine_slide = self.driver.find_element('class name',slide_xpath)
+find_submit = self.driver.find_element('xpath',submit_xpath)
+action.click(find_text).send_keys(login_name).click(find_pws).send_keys(login_password).click(fine_slide).click_and_hold(fine_slide).move_by_offset(288,2).release().perform()
+```
 #### 1. 点击操作
 
 #### 2. 鼠标移动操作
