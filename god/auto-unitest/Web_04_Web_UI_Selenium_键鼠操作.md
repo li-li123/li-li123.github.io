@@ -51,6 +51,7 @@ actions.perform()
 
 ### 5. 实操测试
 ```python
+from selenium.webdriver import ActionChains
 action = ActionChains(self.driver)
 find_text = self.driver.find_element('id', user_login_id)
 time.sleep(2.0)
