@@ -9,3 +9,4 @@
 * [元组](god/testnode/4.6_元组.md)
 * [文件](god/testnode/4.7_文件.md)
 * [数值类型](god/testnode/5.1_数值类型.md)
+* [5.2_数值类型](god/testnode/5.2_数值类型.md)
