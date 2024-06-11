@@ -37,7 +37,7 @@
 * [Redis 从入门到高可用实践](books/redis/第1章_Redis初识.md)
 
 ## python 笔记
-* [python 使用入门](god/testnode/python使用入门.md)
+* [python 学习手册](god/testnode/1.1_python使用入门.md)
 * [python 如何运行程序](god/testnode/python如何运行程序.md)
  
 ## 练习笔记
