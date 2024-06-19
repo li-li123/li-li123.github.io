@@ -51,6 +51,7 @@ from selenium.webdriver.common.keys import Keys
 ```python
 self.find_text.send_keys(Keys.SPACE*5)
 ```
+
 ### 5. 模拟鼠标的操作
 1. 点击左键、右键
 · 左键
