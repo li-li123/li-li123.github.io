@@ -39,6 +39,7 @@
 ## python 笔记
 * [python 学习手册](god/testnode/1.1_python使用入门.md)
 * [python 如何运行程序](god/testnode/python如何运行程序.md)
+* [第三方库](god/python库/oneday1_python_pywinauto.md)
  
 ## 练习笔记
 * [刷题笔记](god/testing/03_数组中重复的数字.md)
