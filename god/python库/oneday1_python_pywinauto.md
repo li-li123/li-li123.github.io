@@ -37,3 +37,4 @@ print(app.windows)
 <bound method Application.windows of <pywinauto.application.Application object at 0x000001E482D2F940>>
 <bound method Application.windows of <pywinauto.application.Application object at 0x000001E4FF684B50>>
 ```
+https://www.cnblogs.com/yfacesclub/p/10113003.html#entry-points-for-automation
