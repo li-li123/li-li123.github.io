@@ -1,0 +1,94 @@
+## 1047. 删除字符串中的所有相邻重复项
+
+### 提示
+给出由小写字母组成的字符串 S，重复项删除操作会选择两个相邻且相同的字母，并删除它们。
+在 S 上反复执行重复项删除操作，直到无法继续删除。在完成所有重复项删除操作后返回最终的字符串。答案保证唯一。
+### 示例：
+输入："abbaca"
+输出："ca"
+解释：
+例如，在 "abbaca" 中，我们可以删除 "bb" 由于两字母相邻且相同，这是此时唯一可以执行删除操作的重复项。之后我们得到字符串 "aaca"，其中又只有 "aa" 可以执行重复项删除操作，所以最后的字符串为 "ca"。
+### 提示：
+1 <= S.length <= 20000
+S 仅由小写英文字母组成。
+### 题目解析
+
+#### 方法一——Python
+#### 解题思路：
+
+```python
+class STACK_DEAL():
+    def stack_add(self, stack_new, element: str):
+        stack_new.append(element)
+        return stack_new
+
+    def stack_del(self, meter: list):
+        meter.pop(len(meter) - 1)
+        return meter
+
+
+if __name__ == '__main__':
+
+    a = 'aabarabcc'
+    A = STACK_DEAL()
+    stack_list = []
+    i = 0
+    while i < len(a):
+        stack_list = A.stack_add(stack_list,a[i])
+        if len(stack_list) <2:
+            i =i+1
+            continue
+        elif stack_list[len(stack_list)-1] == stack_list[len(stack_list)-2]:
+            stack_list = A.stack_del(stack_list)
+            stack_list = A.stack_del(stack_list)
+            i=i+1
+        else:
+            i =i+1
+            continue
+    print(stack_list.join())
+
+```
+
+
+```python
+
+class STACK_DEAL():
+    def stack_add(self, stack_new, element: str):
+        stack_new.append(element)
+        return stack_new
+
+    def stack_del(self, meter: list):
+        meter.pop(len(meter) - 1)
+        return meter
+    def test_1(self):
+        a = '(((Hhjhu))hu())'
+        A = STACK_DEAL()
+        stack_list = []
+        i = 0
+        if a[0] == ')':
+            return False
+        while i < len(a):
+            if a[i] == '(':
+                stack_list.append(a[i])
+                i= i+1
+            elif a[i] ==')':
+                if len(stack_list) ==0:
+                    return False
+                if len(stack_list) !=0 and stack_list[len(stack_list)-1] == '(':
+                    stack_list = A.stack_del(stack_list)
+                    i = i+1
+            else:
+                i=i+1
+        print(stack_list)
+        if len(stack_list) !=0:
+            return False
+        else:
+            return True
+
+
+
+if __name__ == '__main__':
+
+    B = STACK_DEAL()
+    print(B.test_1())
+```
