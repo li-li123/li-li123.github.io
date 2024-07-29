@@ -1,0 +1,3 @@
+//# if (NEXT_MACG1):
+#  include "god/testing/txt.c"
+//# else
